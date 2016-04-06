@@ -19,7 +19,6 @@
 		932E3FDB1CB202A7002126A4 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932E3FDA1CB202A7002126A4 /* CollectionViewCell.swift */; };
 		932E3FDD1CB202C5002126A4 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932E3FDC1CB202C5002126A4 /* Helper.swift */; };
 		932E3FDF1CB202D6002126A4 /* TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932E3FDE1CB202D6002126A4 /* TextFieldDelegate.swift */; };
-		932E3FE31CB2098D002126A4 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932E3FE21CB2098D002126A4 /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +36,6 @@
 		932E3FDA1CB202A7002126A4 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewCell.swift; path = ViewControllers/CollectionViewCell.swift; sourceTree = "<group>"; };
 		932E3FDC1CB202C5002126A4 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		932E3FDE1CB202D6002126A4 /* TextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldDelegate.swift; sourceTree = "<group>"; };
-		932E3FE21CB2098D002126A4 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = ViewControllers/TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +89,6 @@
 				932E3FD31CB2024E002126A4 /* SentMemesCollectionViewController.swift */,
 				932E3FD51CB20271002126A4 /* DetailMemeViewController.swift */,
 				932E3FDA1CB202A7002126A4 /* CollectionViewCell.swift */,
-				932E3FE21CB2098D002126A4 /* TableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -178,7 +175,6 @@
 				932E3FD01CB20222002126A4 /* EditMemeViewController.swift in Sources */,
 				932E3FD21CB20239002126A4 /* SentMemesTableViewController.swift in Sources */,
 				932E3FDF1CB202D6002126A4 /* TextFieldDelegate.swift in Sources */,
-				932E3FE31CB2098D002126A4 /* TableViewController.swift in Sources */,
 				932E3FD61CB20271002126A4 /* DetailMemeViewController.swift in Sources */,
 				932E3FDB1CB202A7002126A4 /* CollectionViewCell.swift in Sources */,
 				932E3FD91CB20295002126A4 /* Meme.swift in Sources */,
@@ -334,6 +330,7 @@
 				932E3FCD1CB20062002126A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

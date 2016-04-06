@@ -21,6 +21,9 @@ class EditMemeViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var bottomToolbar: UIToolbar!
     
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    
     private let textFieldDelegate = TextFieldDelegate()
     
     var meme: Meme?
@@ -81,6 +84,7 @@ class EditMemeViewController: UIViewController, UITextFieldDelegate {
     @IBAction func shareAction(sender: AnyObject) {
         let memedImage = generateMemedImage()
         
+        
         let activityViewController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         activityViewController.completionWithItemsHandler = { (activityType: String?, completed: Bool, returnedItems: [AnyObject]?, activityError: NSError?) -> Void in
             guard activityError == nil else {
@@ -104,16 +108,29 @@ class EditMemeViewController: UIViewController, UITextFieldDelegate {
         navigationBar.hidden = true
         bottomToolbar.hidden = true
         
+        let imageRect = calculateRectOfImageInfUIImageView(imagePickerView)
+        topConstraint.constant = (imageRect.origin.y + 0.0)
+        bottomConstraint.constant = view.frame.size.height - (imageRect.origin.y + imageRect.size.height)
         // Render view to an image
-        UIGraphicsBeginImageContext(view.frame.size)
-        view.drawViewHierarchyInRect(view.frame,
-                                     afterScreenUpdates: true)
-        let memedImage : UIImage =
-            UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
+//        UIGraphicsBeginImageContext(view.frame.size)
+//        view.drawViewHierarchyInRect(view.frame,
+//                                     afterScreenUpdates: true)
         
+        // code retrieved from:
+        // stackoverflow: Screenshot Only Part of Screen - Swift
+        //	rakeshbs, 16 Jan 2015
+        //	http://stackoverflow.com/questions/27975954/screenshot-only-part-of-screen-swift
+        UIGraphicsBeginImageContextWithOptions(imageRect.size, false, 0)
+        let rect = CGRectMake(-imageRect.origin.x, -imageRect.origin.y, view.bounds.size.width, view.bounds.size.height)
+        view.drawViewHierarchyInRect(rect, afterScreenUpdates: true)
+        let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
         navigationBar.hidden = false
         bottomToolbar.hidden = false
+        
+        topConstraint.constant = 54.0
+        bottomConstraint.constant = 54.0
         
         
         return memedImage
@@ -123,6 +140,34 @@ class EditMemeViewController: UIViewController, UITextFieldDelegate {
         let meme = Meme(topString: topTextField.text!, bottomString: bottomTextField.text!, image: imagePickerView.image!, memedImage: memedImage)
         
         (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
+    }
+    
+    // code modified from:
+    // stackoverflow: UIImageView get the position of the showing Image
+    //	Marcus, 13 Oct 2014
+    //	http://stackoverflow.com/questions/26348736/uiimageview-get-the-position-of-the-showing-image
+    
+    func calculateRectOfImageInfUIImageView(imgView: UIImageView) -> CGRect{
+        let imgViewSize = imgView.frame.size        //size of UIImageView
+        let imgSize = imgView.image!.size           //size of the image, currently displayed
+        
+        //Calculate the aspect, assuming imgView.contentMode == UIViewContentModeScaleAspectFit
+        
+        let scaleW = imgViewSize.width / imgSize.width
+        let scaleH = imgViewSize.height / imgSize.height
+        let aspect = fmin(scaleW, scaleH)
+
+        var imageRect = CGRectMake(0.0,0.0, (imgSize.width * aspect), (imgSize.height * aspect))
+        
+        // Center image
+        imageRect.origin.x = (imgViewSize.width - imageRect.size.width) / 2
+        imageRect.origin.y = (imgViewSize.height - imageRect.size.height) / 2
+        
+        // Add imageView offset
+        imageRect.origin.x += imgView.frame.origin.x
+        imageRect.origin.y += imgView.frame.origin.y
+        
+        return imageRect
     }
     
     @IBAction func cancelAction(sender: AnyObject) {
