@@ -26,7 +26,18 @@ class EditMemeViewController: UIViewController, UITextFieldDelegate {
     
     private let textFieldDelegate = TextFieldDelegate()
     
-    var meme: Meme?
+//    var meme: Meme?
+    
+    internal var memes: [Meme] {
+        get{
+            return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
+        }
+        set {
+            (UIApplication.sharedApplication().delegate as! AppDelegate).memes = newValue
+        }
+        
+    }
+    var memeIndex: Int?
     
     //MARK: - Lyfe Cycle
     override func viewDidLoad() {
@@ -34,10 +45,10 @@ class EditMemeViewController: UIViewController, UITextFieldDelegate {
         
         setupTextFields()
         
-        if let meme = meme {
-            topTextField.text = meme.topString
-            bottomTextField.text = meme.bottomString
-            imagePickerView.image = meme.image
+        if let memeIndex = memeIndex {
+            topTextField.text = memes[memeIndex].topString
+            bottomTextField.text = memes[memeIndex].bottomString
+            imagePickerView.image = memes[memeIndex].image
         }
     }
     
@@ -112,9 +123,6 @@ class EditMemeViewController: UIViewController, UITextFieldDelegate {
         topConstraint.constant = (imageRect.origin.y + 0.0)
         bottomConstraint.constant = view.frame.size.height - (imageRect.origin.y + imageRect.size.height)
         // Render view to an image
-//        UIGraphicsBeginImageContext(view.frame.size)
-//        view.drawViewHierarchyInRect(view.frame,
-//                                     afterScreenUpdates: true)
         
         // code retrieved from:
         // stackoverflow: Screenshot Only Part of Screen - Swift
@@ -137,16 +145,21 @@ class EditMemeViewController: UIViewController, UITextFieldDelegate {
     }
     
     func saveMeme(memedImage: UIImage) {
-        let meme = Meme(topString: topTextField.text!, bottomString: bottomTextField.text!, image: imagePickerView.image!, memedImage: memedImage)
+        if let memeIndex = memeIndex {
+            memes[memeIndex] = Meme(topString: topTextField.text!, bottomString: bottomTextField.text!, image: imagePickerView.image!, memedImage: memedImage)
+        }else{
+            let meme = Meme(topString: topTextField.text!, bottomString: bottomTextField.text!, image: imagePickerView.image!, memedImage: memedImage)
+            memes.append(meme)
+        }
         
-        (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
+        
+//        (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme!)
     }
     
     // code modified from:
     // stackoverflow: UIImageView get the position of the showing Image
     //	Marcus, 13 Oct 2014
     //	http://stackoverflow.com/questions/26348736/uiimageview-get-the-position-of-the-showing-image
-    
     func calculateRectOfImageInfUIImageView(imgView: UIImageView) -> CGRect{
         let imgViewSize = imgView.frame.size        //size of UIImageView
         let imgSize = imgView.image!.size           //size of the image, currently displayed

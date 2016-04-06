@@ -50,12 +50,12 @@ class SentMemesCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        Helper.presentDetailMeme(self, meme: memes[indexPath.item])
+        Helper.presentDetailMeme(self, memeIndex: indexPath.item)
     }
     
     
     @IBAction func addMeme(sender: AnyObject) {
-        Helper.presentEditMeme(self, meme: nil)
+        Helper.presentEditMeme(self, memeIndex: nil)
     }
     
 }

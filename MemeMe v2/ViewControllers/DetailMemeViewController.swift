@@ -12,11 +12,15 @@ class DetailMemeViewController: UIViewController {
     
     @IBOutlet weak var memeImage: UIImageView!
     
-    internal var meme: Meme!
+//    internal var meme: Meme!
+    internal var memes: [Meme] {
+        return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
+    }
+    var memeIndex: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        memeImage.image = meme.memedImage
+        memeImage.image = memes[memeIndex].memedImage
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -25,7 +29,7 @@ class DetailMemeViewController: UIViewController {
     }
     
     @IBAction func editMemeAction(sender: AnyObject) {
-        Helper.presentEditMeme(self, meme: meme)
+        Helper.presentEditMeme(self, memeIndex: memeIndex)
         navigationController?.popViewControllerAnimated(true)
     }
 }

@@ -54,7 +54,7 @@ class SentMemesTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        Helper.presentDetailMeme(self, meme: memes[indexPath.row])
+        Helper.presentDetailMeme(self, memeIndex: indexPath.row)
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -63,7 +63,7 @@ class SentMemesTableViewController: UITableViewController {
     
     
     @IBAction func addMeme(sender: AnyObject) {
-        Helper.presentEditMeme(self, meme: nil)
+        Helper.presentEditMeme(self, memeIndex: nil)
     }
     
 }
