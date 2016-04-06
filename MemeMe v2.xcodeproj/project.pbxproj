@@ -19,6 +19,8 @@
 		932E3FDB1CB202A7002126A4 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932E3FDA1CB202A7002126A4 /* CollectionViewCell.swift */; };
 		932E3FDD1CB202C5002126A4 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932E3FDC1CB202C5002126A4 /* Helper.swift */; };
 		932E3FDF1CB202D6002126A4 /* TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932E3FDE1CB202D6002126A4 /* TextFieldDelegate.swift */; };
+		935169E21CB4C33000F6610C /* ufonts.com_impact.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 935169E11CB4C33000F6610C /* ufonts.com_impact.ttf */; };
+		935169E41CB4C8BA00F6610C /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935169E31CB4C8BA00F6610C /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		932E3FDA1CB202A7002126A4 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewCell.swift; path = ViewControllers/CollectionViewCell.swift; sourceTree = "<group>"; };
 		932E3FDC1CB202C5002126A4 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		932E3FDE1CB202D6002126A4 /* TextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldDelegate.swift; sourceTree = "<group>"; };
+		935169E11CB4C33000F6610C /* ufonts.com_impact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ufonts.com_impact.ttf; sourceTree = "<group>"; };
+		935169E31CB4C8BA00F6610C /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCell.swift; path = ViewControllers/TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,7 @@
 				932E3FC31CB20062002126A4 /* Assets.xcassets */,
 				932E3FC01CB20062002126A4 /* Main.storyboard */,
 				932E3FC51CB20062002126A4 /* LaunchScreen.storyboard */,
+				935169E11CB4C33000F6610C /* ufonts.com_impact.ttf */,
 				932E3FC81CB20062002126A4 /* Info.plist */,
 				932E3FDC1CB202C5002126A4 /* Helper.swift */,
 				932E3FDE1CB202D6002126A4 /* TextFieldDelegate.swift */,
@@ -89,6 +94,7 @@
 				932E3FD31CB2024E002126A4 /* SentMemesCollectionViewController.swift */,
 				932E3FD51CB20271002126A4 /* DetailMemeViewController.swift */,
 				932E3FDA1CB202A7002126A4 /* CollectionViewCell.swift */,
+				935169E31CB4C8BA00F6610C /* TableViewCell.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -161,6 +167,7 @@
 			files = (
 				932E3FC71CB20062002126A4 /* LaunchScreen.storyboard in Resources */,
 				932E3FC41CB20062002126A4 /* Assets.xcassets in Resources */,
+				935169E21CB4C33000F6610C /* ufonts.com_impact.ttf in Resources */,
 				932E3FC21CB20062002126A4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -177,6 +184,7 @@
 				932E3FDF1CB202D6002126A4 /* TextFieldDelegate.swift in Sources */,
 				932E3FD61CB20271002126A4 /* DetailMemeViewController.swift in Sources */,
 				932E3FDB1CB202A7002126A4 /* CollectionViewCell.swift in Sources */,
+				935169E41CB4C8BA00F6610C /* TableViewCell.swift in Sources */,
 				932E3FD91CB20295002126A4 /* Meme.swift in Sources */,
 				932E3FD41CB2024E002126A4 /* SentMemesCollectionViewController.swift in Sources */,
 				932E3FBD1CB20062002126A4 /* AppDelegate.swift in Sources */,

@@ -74,9 +74,10 @@ class EditMemeViewController: UIViewController, UITextFieldDelegate {
     //MARK: - Actions.
     
     func setupTextFields() {
-        
         let memeTextAttributes = [
-            NSStrokeColorAttributeName : UIColor.blackColor(),             NSForegroundColorAttributeName : UIColor.whiteColor(),             NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+            NSStrokeColorAttributeName : UIColor.blackColor(),             NSForegroundColorAttributeName : UIColor.whiteColor(),
+            NSFontAttributeName: UIFont(name: "Impact", size: 40)!,
+//            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
             NSStrokeWidthAttributeName : -3.0
         ]
         
@@ -107,7 +108,7 @@ class EditMemeViewController: UIViewController, UITextFieldDelegate {
                 print("se cancelo")
                 return
             }
-            print("se envio el meme")
+
             self.saveMeme(memedImage)
             self.dismissViewControllerAnimated(true, completion: nil)
         }
@@ -151,9 +152,6 @@ class EditMemeViewController: UIViewController, UITextFieldDelegate {
             let meme = Meme(topString: topTextField.text!, bottomString: bottomTextField.text!, image: imagePickerView.image!, memedImage: memedImage)
             memes.append(meme)
         }
-        
-        
-//        (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme!)
     }
     
     // code modified from:

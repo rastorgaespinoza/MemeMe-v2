@@ -5,6 +5,12 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="ufonts.com_impact.ttf">
+            <string>Impact</string>
+            <string>Impact</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Tab Bar Controller-->
         <scene sceneID="6r9-UU-ap4">
@@ -28,34 +34,55 @@
         <scene sceneID="cNQ-9g-JyI">
             <objects>
                 <tableViewController id="gH2-Cw-3eC" customClass="SentMemesTableViewController" customModule="MemeMe_v2" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Er9-YP-QFX">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="Er9-YP-QFX">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellMemeTableView" textLabel="JKg-9y-auy" detailTextLabel="QmX-sy-wOQ" style="IBUITableViewCellStyleSubtitle" id="efS-CR-K4P">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellMemeTableView" rowHeight="101" id="efS-CR-K4P" customClass="TableViewCell" customModule="MemeMe_v2" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="101"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="efS-CR-K4P" id="wKF-kr-Jdb">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JKg-9y-auy">
-                                            <rect key="frame" x="15" y="5" width="32" height="20"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pLe-Th-gNM">
+                                            <rect key="frame" x="8" y="0.0" width="100" height="100"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="AcD-he-H4N"/>
+                                                <constraint firstAttribute="height" constant="100" id="Dbb-14-Chl"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Top" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysA-dd-CiN">
+                                            <rect key="frame" x="116" y="14" width="476" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QmX-sy-wOQ">
-                                            <rect key="frame" x="15" y="25" width="41" height="14"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Bottom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LgX-zu-wHl">
+                                            <rect key="frame" x="116" y="58" width="476" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="LgX-zu-wHl" firstAttribute="leading" secondItem="ysA-dd-CiN" secondAttribute="leading" id="976-gD-nLB"/>
+                                        <constraint firstItem="LgX-zu-wHl" firstAttribute="trailing" secondItem="ysA-dd-CiN" secondAttribute="trailing" id="F2u-e9-Y8n"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="pLe-Th-gNM" secondAttribute="leading" id="HQf-PN-sgp"/>
+                                        <constraint firstItem="ysA-dd-CiN" firstAttribute="leading" secondItem="pLe-Th-gNM" secondAttribute="trailing" constant="8" id="HvS-Uy-NLF"/>
+                                        <constraint firstItem="ysA-dd-CiN" firstAttribute="top" secondItem="wKF-kr-Jdb" secondAttribute="topMargin" constant="6" id="IGX-wj-rVb"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="LgX-zu-wHl" secondAttribute="bottom" constant="13" id="TYk-8c-IBs"/>
+                                        <constraint firstItem="LgX-zu-wHl" firstAttribute="top" secondItem="ysA-dd-CiN" secondAttribute="bottom" constant="23" id="ZvT-va-Sr8"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="ysA-dd-CiN" secondAttribute="trailing" id="hep-J8-rHI"/>
+                                        <constraint firstItem="pLe-Th-gNM" firstAttribute="centerY" secondItem="wKF-kr-Jdb" secondAttribute="centerY" id="u9o-nI-849"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="bottomLabel" destination="LgX-zu-wHl" id="hip-Md-B8S"/>
+                                    <outlet property="imageMeme" destination="pLe-Th-gNM" id="ybh-dK-Xrk"/>
+                                    <outlet property="topLabel" destination="ysA-dd-CiN" id="3wz-at-U1r"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -132,13 +159,13 @@
                                 <rect key="frame" x="0.0" y="44" width="600" height="512"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="mjR-nr-7aa">
-                                <rect key="frame" x="0.0" y="54" width="600" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <rect key="frame" x="0.0" y="54" width="600" height="37"/>
+                                <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="XsJ-V8-mXm">
-                                <rect key="frame" x="0.0" y="529" width="600" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <rect key="frame" x="0.0" y="509" width="600" height="37"/>
+                                <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                         </subviews>
